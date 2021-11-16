@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>ご記入頂いた教室情報はこちらです</h1>
+    </head>
+    <body>
+        <header>
+            <p>{{insert_table.school_name}}</p>
+            <p>{{insert_table.nearest_station}}</p>
+            <p>{{insert_table.address}}</p>
+            <p>{{insert_table.operating_hour}}</p>
+            <p>{{insert_table.lesson_hour}}</p>
+            <p>{{insert_table.distance_station}}</p>
+            <p>{{insert_table.number_students}}</p>
+            <p>{{insert_table.lesson_time}}</p>
+            <p>{{insert_table.numbers_of_lesson}}</p>
+            <p>{{insert_table.price_minutes}}</p>
+            <p>{{insert_table.price_month}}</p>
+        </header>
+        <a href = "index"><h1>記入ページに戻る</h1></a>
+        <footer>
+            <small>(C)2021 Lec.Booster.</small>
+        </footer>
+    </body>
+</html>
+<!-- 
+unique_school_id = Column(Integer, primary_key=True)
+school_name = Column(VARCHAR)
+nearest_station = Column(VARCHAR)
+address = Column(VARCHAR)
+operating_hour = Column(Integer)
+lesson_hour = Column(Integer)
+distance_station = Column(Integer)
+number_students = Column(Integer)
+lesson_time = Column(Integer)
+numbers_of_lesson = Column(Integer)
+price_minutes = Column(Integer)
+price_month = Column(Integer) -->
