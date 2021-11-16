@@ -19,6 +19,8 @@ db_url = ("{dialect}://{username}:{password}@{host}:{port}/{database}").format(
 
 engine = create_engine(db_url)
 Base = declarative_base()
+SessionClass = sessionmaker(engine)  # セッションを作るクラスを作成
+session = SessionClass()
 
 class school_master(Base):
     __tablename__ = "school_master"  # テーブル名を指定

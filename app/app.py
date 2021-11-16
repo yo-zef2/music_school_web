@@ -79,7 +79,10 @@ def post():
         price_month = val_list[10])
     session.add(insert_table)
     session.commit()
-    return index()
+        
+    return render_template(
+        "confirmation_school_info.html",
+        insert_table=insert_table)
 
 # top.htmlを反映させるための関数
 @app.route('/top')
