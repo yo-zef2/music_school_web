@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>教室の価格診断</title>
+        <link href="/static/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class = "logo"></div>
+            <img src="/static/images/lec_booster.png" alt="lec_booster">    
+        </header>
+        <class></class>
+        <nav>
+            <h1>教室の価格診断</h1>
+        </nav>
+        <form action="/addadd" method="POST">
+            <p>▼テスト用：教室IDを入れてください<br>
+            <input required type="number" name="unique_school_id" placeholder="(例)1303"><br>
+            <p>▼指導歴(年)をご記入ください<br>
+            <input required type="number" name="coaching_history" placeholder="(例)20"><br>
+            ▼下記をターゲットにしていますか<br>
+            <input type="checkbox" name="t_childminder" value=True>保育士志望者<br>
+            <input type="checkbox" name="t_kindergarden_teacher" value=True>幼稚園教諭志望<br>
+            <input type="checkbox" name="t_beginner" value=True>初心者<br>
+            ▼下記コースはありますか<br>
+            <input type="checkbox" name="t_vocal_music" value=True>声楽コース<br>
+            <input type="checkbox" name="composition" value=True>作曲コース<br>            
+            ▼下記の経験はありますか<br>
+            <input type="checkbox" name="t_contest" value=True>コンクールでの入賞経験<br>  
+            <input type="checkbox" name="study_abroad" value=True>海外への留学経験<br>                         
+            ▼卒業大学をご記入ください<br>
+            <input required type="text" name="former_university" placeholder="(例)桐朋学園大学"><br>  
+            <input required type="submit" value="Submit"></p>
+        </form>
+        <footer>
+            <small>(C)2021 Lec.Booster.</small>
+        </footer>
+    </body>
+    </html>
