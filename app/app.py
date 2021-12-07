@@ -1,3 +1,4 @@
+from re import S
 from flask import Flask,render_template,request
 import psycopg2
 from sqlalchemy import create_engine
@@ -11,6 +12,8 @@ from sqlalchemy.orm import sessionmaker
 from . import school
 from . import database
 from . import feature_value
+from . import method
+from . import question_self
 
 app = Flask(__name__)
 
@@ -20,6 +23,11 @@ def index():
     name = request.args.get("name")
     instruments = ["ピアノ","ギター","ベース","ドラム"]
     return render_template("index.html",name=name,instruments=instruments)
+
+
+# 教室idを格納する箱を用意する(グローバル変数として)
+
+unique_school_id = []
 
 @app.route("/add",methods=["post"])
 def post():
@@ -43,6 +51,7 @@ def post():
         "confirmation_school_info.html",
         insert_table=insert_table)
 
+
 # top.htmlを反映させるための関数
 @app.route('/top')
 def top():
@@ -54,57 +63,54 @@ def show_predict_price():
 
 @app.route('/addadd',methods=["post"])
 def post_price_predict():
-    unique_school_id = request.form.get("unique_school_id")
-    coaching_history = request.form.get("coaching_history")
-    t_childminder = request.form.get("t_childminder")
-    t_kindergarden_teacher = request.form.get("t_kindergarden_teacher")
-    t_vocal_music = request.form.get("t_vocal_music")
-    t_beginner = request.form.get("t_beginner")
-    t_contest = request.form.get("t_contest")
-    former_university = request.form.get("former_university")
-    composition = request.form.get("composition")
-    study_abroad = request.form.get("study_abroad")
-    
-    # NoneをFalseに変換する処理をする
-
-    val_list = [
-        unique_school_id,
-        coaching_history,
-        t_childminder,
-        t_kindergarden_teacher,
-        t_vocal_music,
-        t_beginner,
-        t_contest,
-        former_university,
-        composition,
-        study_abroad]
-        
-    for i in range(len(val_list)):
-        if val_list[i] == None:
-            val_list[i] = False
-        elif val_list[i] == "True":
-            val_list[i] = True
-
     features = feature_value.feature(
-        unique_school_id = val_list[0],
-        coaching_history = val_list[1],
-        t_childminder = val_list[2],
-        t_kindergarden_teacher = val_list[3],
-        t_vocal_music = val_list[4],
-        t_beginner = val_list[5],
-        t_contest = val_list[6],
-        former_university = val_list[7],
-        composition = val_list[8],
-        study_abroad = val_list[9])
-
+        unique_school_id = request.form.get("unique_school_id"),
+        coaching_history = request.form.get("coaching_history"),
+        t_childminder = method.get_boolean(request.form.get("t_childminder")),
+        t_kindergarden_teacher = method.get_boolean(request.form.get("t_kindergarden_teacher")),
+        t_vocal_music = method.get_boolean(request.form.get("t_vocal_music")),
+        t_beginner = method.get_boolean(request.form.get("t_beginner")),
+        t_contest = method.get_boolean(request.form.get("t_contest")),
+        former_university = request.form.get("former_university"),
+        composition = method.get_boolean(request.form.get("composition")),
+        study_abroad = method.get_boolean(request.form.get("study_abroad")))
+    
     database.session.add(features)
     database.session.commit()
-    
-    return render_template('testtest.html',features = features)
+
+    return render_template('confirmation_feature_value.html',features = features)
 
 @app.route('/motivation_assessment_form')
 def motivation_assessment():
   return render_template('motivation_assessment_form.html')
+
+@app.route('/confirm_question_self',methods=["post"])
+def post_self_question():
+    self_answer = question_self.change_data_type_self(
+    unique_student_id = request.form.get("unique_student_id"),
+    student_name = request.form.get("student_name"),
+    reason_a_1 = method.get_int(request.form.get("reason_a_1")),
+    reason_b_2 = method.get_int(request.form.get("reason_b_2")),
+    reason_c_3 = method.get_int(request.form.get("reason_c_3")),
+    reason_d_4 = method.get_int(request.form.get("reason_d_4")),
+    reason_e_5 = method.get_int(request.form.get("reason_e_5")),
+    reason_f_6 = method.get_int(request.form.get("reason_f_6")),
+    reason_g_7 = method.get_int(request.form.get("reason_g_7")),
+    reason_h_8 = method.get_int(request.form.get("reason_h_8")),
+    reason_i_9 = method.get_int(request.form.get("reason_i_9")),
+    reason_j_10 = method.get_int(request.form.get("reason_j_10")),
+    reason_k_11 = method.get_int(request.form.get("reason_k_11")),
+    reason_l_12 = method.get_int(request.form.get("reason_l_12")),
+    reason_m_13 = method.get_int(request.form.get("reason_m_13")),
+    reason_n_14 = method.get_int(request.form.get("reason_n_14")),
+    reason_o_15 = method.get_int(request.form.get("reason_o_15")))
+
+    print(type(self_answer.reason_a_1))
+    database.session.add(self_answer)
+    database.session.commit()
+
+    return render_template('confirmation_self_answer.html',self_answer = self_answer)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

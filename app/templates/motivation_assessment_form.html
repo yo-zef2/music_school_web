@@ -13,98 +13,102 @@
         <nav>
             <h1>生徒のモチベーション診断</h1>
         </nav>
-        <form action="/add" method="POST">
-            <p><h1>▼習い事/レッスンを通っている理由について当てはまるものにチェックをつけてください</h1><br>
+        <form action="/confirm_question_self" method="POST">
+        <p><h1>▼習い事/レッスンを通っている理由について当てはまるものにチェックをつけてください</h1><br>
+            <p>▼テスト用：生徒IDを入れてください<br>
+            <input required type="number" name="unique_student_id" placeholder="(例)1303"><br>
+            <p>▼テスト用：生徒名を入れてください<br>
+            <input required type="text" name="student_name" placeholder="(例)ありけー"><br>  
             ▼通うことで、何か報酬(お金、昇級など)が貰えるから<br>
-            <input required type="radio" name="reason_a_1">そう思わない<br>
-            <input required type="radio" name="reason_a_1">どちらかというと思わない<br>
-            <input required type="radio" name="reason_a_1">どちらでもない<br>
-            <input required type="radio" name="reason_a_1">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_a_1">とてもそう思う<br>                 
+            <input required type="radio" name="reason_a_1" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_a_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_a_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_a_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_a_1" value = 5>とてもそう思う<br>                 
             ▼通わないと、周りから怒られるから<br>
-            <input required type="radio" name="reason_b_2">そう思わない<br>
-            <input required type="radio" name="reason_b_2">どちらかというと思わない<br>
-            <input required type="radio" name="reason_b_2">どちらでもない<br>
-            <input required type="radio" name="reason_b_2">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_b_2">とてもそう思う<br>   
+            <input required type="radio" name="reason_b_2" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_b_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_b_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_b_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_b_2" value = 5>とてもそう思う<br>   
             規則のようなものだから<br>
-            <input required type="radio" name="reason_c_3">そう思わない<br>
-            <input required type="radio" name="reason_c_3">どちらかというと思わない<br>
-            <input required type="radio" name="reason_c_3">どちらでもない<br>
-            <input required type="radio" name="reason_c_3">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_c_3">とてもそう思う<br>   
+            <input required type="radio" name="reason_c_3" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_c_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_c_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_c_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_c_3" value = 5>とてもそう思う<br>   
             友人に良い印象を与えたいから<br>
-            <input required type="radio" name="reason_d_4">そう思わない<br>
-            <input required type="radio" name="reason_d_4">どちらかというと思わない<br>
-            <input required type="radio" name="reason_d_4">どちらでもない<br>
-            <input required type="radio" name="reason_d_4">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_d_4">とてもそう思う<br>   
+            <input required type="radio" name="reason_d_4" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_d_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_d_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_d_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_d_4" value = 5>とてもそう思う<br>   
             辞めることに罪悪感があるから<br>
-            <input required type="radio" name="reason_e_5">そう思わない<br>
-            <input required type="radio" name="reason_e_5">どちらかというと思わない<br>
-            <input required type="radio" name="reason_e_5">どちらでもない<br>
-            <input required type="radio" name="reason_e_5">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_e_5">とてもそう思う<br>   
+            <input required type="radio" name="reason_e_5" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_e_5" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_e_5" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_e_5" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_e_5" value = 5>とてもそう思う<br>   
             通わないと何となく不安だから<br>
-            <input required type="radio" name="reason_f_6">そう思わない<br>
-            <input required type="radio" name="reason_f_6">どちらかというと思わない<br>
-            <input required type="radio" name="reason_f_6">どちらでもない<br>
-            <input required type="radio" name="reason_f_6">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_f_6">とてもそう思う<br>   
+            <input required type="radio" name="reason_f_6" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_f_6" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_f_6" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_f_6" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_f_6" value = 5>とてもそう思う<br>   
             習い事/レッスンに通うことは良いことだ と思うから<br>
-            <input required type="radio" name="reason_g_7">そう思わない<br>
-            <input required type="radio" name="reason_g_7">どちらかというと思わない<br>
-            <input required type="radio" name="reason_g_7">どちらでもない<br>
-            <input required type="radio" name="reason_g_7">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_g_7">とてもそう思う<br>   
+            <input required type="radio" name="reason_g_7" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_g_7" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_g_7" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_g_7" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_g_7" value = 5>とてもそう思う<br>   
             習い事/レッスンに通うことは大切なこと だと思うから<br>
-            <input required type="radio" name="reason_h_8">そう思わない<br>
-            <input required type="radio" name="reason_h_8">どちらかというと思わない<br>
-            <input required type="radio" name="reason_h_8">どちらでもない<br>
-            <input required type="radio" name="reason_h_8">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_h_8">とてもそう思う<br>   
+            <input required type="radio" name="reason_h_8" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_h_8" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_h_8" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_h_8" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_h_8" value = 5>とてもそう思う<br>   
             習い事/レッスンの経験が社会では必要だ と思うから<br>
-            <input required type="radio" name="reason_i_9">そう思わない<br>
-            <input required type="radio" name="reason_i_9">どちらかというと思わない<br>
-            <input required type="radio" name="reason_i_9">どちらでもない<br>
-            <input required type="radio" name="reason_i_9">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_i_9">とてもそう思う<br>   
+            <input required type="radio" name="reason_i_9" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_i_9" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_i_9" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_i_9" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_i_9" value = 5>とてもそう思う<br>   
             希望している進路(学校,会社,職種など)を 実現したいから<br>
-            <input required type="radio" name="reason_j_10">そう思わない<br>
-            <input required type="radio" name="reason_j_10">どちらかというと思わない<br>
-            <input required type="radio" name="reason_j_10">どちらでもない<br>
-            <input required type="radio" name="reason_j_10">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_j_10">とてもそう思う<br>   
+            <input required type="radio" name="reason_j_10" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_j_10" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_j_10" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_j_10" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_j_10" value = 5>とてもそう思う<br>   
             将来の成功につながるから<br>
-            <input required type="radio" name="reason_k_11">そう思わない<br>
-            <input required type="radio" name="reason_k_11">どちらかというと思わない<br>
-            <input required type="radio" name="reason_k_11">どちらでもない<br>
-            <input required type="radio" name="reason_k_11">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_k_11">とてもそう思う<br>   
+            <input required type="radio" name="reason_k_11" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_k_11" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_k_11" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_k_11" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_k_11" value = 5>とてもそう思う<br>   
             自分の夢を叶えたいから<br>
-            <input required type="radio" name="reason_l_12">そう思わない<br>
-            <input required type="radio" name="reason_l_12">どちらかというと思わない<br>
-            <input required type="radio" name="reason_l_12">どちらでもない<br>
-            <input required type="radio" name="reason_l_12">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_l_12">とてもそう思う<br>   
+            <input required type="radio" name="reason_l_12" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_l_12" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_l_12" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_l_12" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_l_12" value = 5>とてもそう思う<br>   
             新しいスキルや技術の発見が面白いか ら<br>
-            <input required type="radio" name="reason_m_13">そう思わない<br>
-            <input required type="radio" name="reason_m_13">どちらかというと思わない<br>
-            <input required type="radio" name="reason_m_13">どちらでもない<br>
-            <input required type="radio" name="reason_m_13">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_m_13">とてもそう思う<br>   
+            <input required type="radio" name="reason_m_13" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_m_13" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_m_13" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_m_13" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_m_13" value = 5>とてもそう思う<br>   
             自分の能力を磨き上げる過程で満足を感じるから<br>
-            <input required type="radio" name="reason_n_14">そう思わない<br>
-            <input required type="radio" name="reason_n_14">どちらかというと思わない<br>
-            <input required type="radio" name="reason_n_14">どちらでもない<br>
-            <input required type="radio" name="reason_n_14">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_n_14">とてもそう思う<br>   
+            <input required type="radio" name="reason_n_14" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_n_14" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_n_14" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_n_14" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_n_14" value = 5>とてもそう思う<br>   
             この活動に本当に没頭しているとわくわくするから<br>
-            <input required type="radio" name="reason_o_15">そう思わない<br>
-            <input required type="radio" name="reason_o_15">どちらかというと思わない<br>
-            <input required type="radio" name="reason_o_15">どちらでもない<br>
-            <input required type="radio" name="reason_o_15">どちらかというとそう思う<br>
-            <input required type="radio" name="reason_o_15">とてもそう思う<br>    
+            <input required type="radio" name="reason_o_15" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_o_15" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_o_15" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_o_15" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_o_15" value = 5>とてもそう思う<br>    
             <input required type="submit" value="Submit"></p>
         </form>
         <footer>

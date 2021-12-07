@@ -18,17 +18,28 @@
             <input required type="number" name="unique_school_id" placeholder="(例)1303"><br>
             <p>▼指導歴(年)をご記入ください<br>
             <input required type="number" name="coaching_history" placeholder="(例)20"><br>
-            ▼下記をターゲットにしていますか<br>
-            <input type="checkbox" name="t_childminder" value=True>保育士志望者<br>
-            <input type="checkbox" name="t_kindergarden_teacher" value=True>幼稚園教諭志望<br>
-            <input type="checkbox" name="t_beginner" value=True>初心者<br>
-            ▼下記コースはありますか<br>
-            <input type="checkbox" name="t_vocal_music" value=True>声楽コース<br>
-            <input type="checkbox" name="composition" value=True>作曲コース<br>            
-            ▼下記の経験はありますか<br>
-            <input type="checkbox" name="t_contest" value=True>コンクールでの入賞経験<br>  
-            <input type="checkbox" name="study_abroad" value=True>海外への留学経験<br>                         
-            ▼卒業大学をご記入ください<br>
+            <p>▼保育士をターゲットにしていますか<br>
+            <input required type="radio" name="t_childminder" value=True>はい<br>
+            <input required type="radio" name="t_childminder" value=False>いいえ<br>
+            <p>▼幼稚園教諭志望をターゲットにしていますか<br>
+            <input required type="radio" name="t_kindergarden_teacher" value=True>はい<br>
+            <input required type="radio" name="t_kindergarden_teacher" value=False> いいえ<br>
+            <p>▼初心者をターゲットにしていますか<br>                
+            <input required type="radio" name="t_beginner" value=True>はい<br>
+            <input required type="radio" name="t_beginner" value=False>いいえ<br>
+            <p>▼声楽コースはありますか<br>
+            <input required type="radio" name="t_vocal_music" value=True>はい<br>
+            <input required type="radio" name="t_vocal_music" value=False>いいえ<br>
+            <p>▼作曲コースはありますか<br>
+            <input required type="radio" name="composition" value=True>はい<br>
+            <input required type="radio" name="composition" value=False>いいえ<br>
+            <p>▼コンクールでの入賞経験はありますか<br>
+            <input required type="radio" name="t_contest" value=True>はい<br>
+            <input required type="radio" name="t_contest" value=False>いいえ<br>
+            <p>▼海外への留学経験はありますか<br>
+            <input required type="radio" name="study_abroad" value=True>はい<br>
+            <input required type="radio" name="study_abroad" value=False>いいえ<br>                      
+            <p>▼卒業大学をご記入ください<br>
             <input required type="text" name="former_university" placeholder="(例)桐朋学園大学"><br>  
             <input required type="submit" value="Submit"></p>
         </form>
