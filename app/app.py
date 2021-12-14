@@ -14,6 +14,7 @@ from . import database
 from . import feature_value
 from . import method
 from . import question_self
+from . import student_master_info
 
 app = Flask(__name__)
 
@@ -24,10 +25,6 @@ def index():
     instruments = ["ピアノ","ギター","ベース","ドラム"]
     return render_template("index.html",name=name,instruments=instruments)
 
-
-# 教室idを格納する箱を用意する(グローバル変数として)
-
-unique_school_id = []
 
 @app.route("/add",methods=["post"])
 def post():
@@ -51,15 +48,22 @@ def post():
         "confirmation_school_info.html",
         insert_table=insert_table)
 
-
 # top.htmlを反映させるための関数
 @app.route('/top')
 def top():
   return render_template('top.html')
 
-@app.route('/predict_price_form')
+@app.route('/student_master_form',methods=["post"])
+def get_student_master():
+    school_name = request.form["school_name"]
+    print(school_name)
+    return render_template('student_master_form.html', school_name = school_name)
+
+@app.route('/predict_price_form',methods=["post"])
 def show_predict_price():
-    return render_template('predict_price_form.html')
+    unique_school_id = request.form["unique_school_id"]
+    print(unique_school_id)
+    return render_template('predict_price_form.html',unique_school_id = unique_school_id)
 
 @app.route('/addadd',methods=["post"])
 def post_price_predict():
@@ -80,9 +84,26 @@ def post_price_predict():
 
     return render_template('confirmation_feature_value.html',features = features)
 
-@app.route('/motivation_assessment_form')
+@app.route('/motivation_assessment_form',methods=["post"])
 def motivation_assessment():
-  return render_template('motivation_assessment_form.html')
+    # ここにchange_data_type_student_masterを入れ込む
+        student_info = student_master_info.change_data_type_student_master(
+        student_name = request.form.get("student_name"),
+        school_name = request.form.get("school_name"),
+        student_age = request.form.get("student_age"),
+        family_structure = request.form.get("family_structure"),
+        student_address = request.form.get("student_address"),
+        playing_history = request.form.get("playing_history"),
+        learning_history = request.form.get("learning_history"),
+        performance_level = request.form.get("performance_level"),
+        achivement_homework = request.form.get("achivement_homework"),
+        purpose_lesson = request.form.get("purpose_lesson"),
+        participation_consert = request.form.get("participation_consert"))
+        
+        database.session.add(student_info)
+        database.session.commit()
+        
+        return render_template('motivation_assessment_form.html', student_info = student_info)
 
 @app.route('/confirm_question_self',methods=["post"])
 def post_self_question():
@@ -111,7 +132,5 @@ def post_self_question():
 
     return render_template('confirmation_self_answer.html',self_answer = self_answer)
 
-
 if __name__ == "__main__":
     app.run(debug=True)
-

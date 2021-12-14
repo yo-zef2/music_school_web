@@ -8,14 +8,14 @@
         <header>
             <div class = "logo"></div>
             <img src="/static/images/lec_booster.png" alt="lec_booster">    
+            <p>{{unique_school_id}}</p>
         </header>
         <class></class>
         <nav>
             <h1>教室の価格診断</h1>
         </nav>
         <form action="/addadd" method="POST">
-            <p>▼テスト用：教室IDを入れてください<br>
-            <input required type="number" name="unique_school_id" placeholder="(例)1303"><br>
+            <input type="hidden" name="unique_school_id" value = {{unique_school_id}}>
             <p>▼指導歴(年)をご記入ください<br>
             <input required type="number" name="coaching_history" placeholder="(例)20"><br>
             <p>▼保育士をターゲットにしていますか<br>
@@ -41,7 +41,7 @@
             <input required type="radio" name="study_abroad" value=False>いいえ<br>                      
             <p>▼卒業大学をご記入ください<br>
             <input required type="text" name="former_university" placeholder="(例)桐朋学園大学"><br>  
-            <input required type="submit" value="Submit"></p>
+            <input required type="submit" value="予測結果を見る"></p>
         </form>
         <footer>
             <small>(C)2021 Lec.Booster.</small>
