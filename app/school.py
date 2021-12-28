@@ -6,7 +6,7 @@ from sqlalchemy.schema import Column
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String
 from sqlalchemy.orm import sessionmaker
-from . import database
+from . import database 
 
 
 class school_master(database.Base):

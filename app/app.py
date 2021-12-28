@@ -14,7 +14,9 @@ from . import database
 from . import feature_value
 from . import method
 from . import question_self
+from . import question_fact
 from . import student_master_info
+from . import SchoolRepository
 
 app = Flask(__name__)
 
@@ -41,9 +43,9 @@ def post():
         numbers_of_lesson = request.form["numbers_of_lesson"],
         price_minutes = request.form["price_minutes"],
         price_month = request.form["price_month"])
-    database.session.add(insert_table)
-    database.session.commit()
-
+    repository = SchoolRepository.SchoolRepository()
+    repository.insert_data(insert_table) # データの格納
+    repository.find_by_id(100)
     return render_template(
         "confirmation_school_info.html",
         insert_table=insert_table)
@@ -130,7 +132,48 @@ def post_self_question():
     database.session.add(self_answer)
     database.session.commit()
 
-    return render_template('confirmation_self_answer.html',self_answer = self_answer)
+    factor_answer = question_fact.change_data_type_factor(
+    unique_student_id = request.form.get("unique_student_id"),
+    student_name = request.form.get("student_name"),
+    question_b9_1 = request.form.get("question_b9_1"),
+    question_c11_1 = method.get_int(request.form.get("question_c11_1")),
+    question_c11_2 = method.get_int(request.form.get("question_c11_2")),
+    question_c11_3 = method.get_int(request.form.get("question_c11_3")),
+    question_c11_4 = method.get_int(request.form.get("question_c11_4")),
+    question_c11_5 = method.get_int(request.form.get("question_c11_5")),
+    question_c11_6 = method.get_int(request.form.get("question_c11_6")),
+    question_d12_1 = method.get_int(request.form.get("question_d12_1")),
+    question_d12_2 = method.get_int(request.form.get("question_d12_2")),
+    question_d12_3 = method.get_int(request.form.get("question_d12_3")),
+    question_d12_4 = method.get_int(request.form.get("question_d12_4")),
+    question_d12_5 = method.get_int(request.form.get("question_d12_5")),
+    question_d12_6 = method.get_int(request.form.get("question_d12_6")),
+    question_e13_1 = method.get_int(request.form.get("question_e13_1")),
+    question_e13_2 = method.get_int(request.form.get("question_e13_2")),
+    question_e13_3 = method.get_int(request.form.get("question_e13_3")),
+    question_e13_4 = method.get_int(request.form.get("question_e13_4")),
+    question_e13_5 = method.get_int(request.form.get("question_e13_5")),
+    question_e13_6 = method.get_int(request.form.get("question_e13_6")),
+    question_f14_1 = method.get_int(request.form.get("question_f14_1")),
+    question_f14_2 = method.get_int(request.form.get("question_f14_2")),
+    question_f14_3 = method.get_int(request.form.get("question_f14_3")),
+    question_f14_4 = method.get_int(request.form.get("question_f14_4")),
+    question_f14_5 = method.get_int(request.form.get("question_f14_5")),
+    question_f14_6 = method.get_int(request.form.get("question_f14_6")),
+    question_f14_7 = method.get_int(request.form.get("question_f14_7")),
+    question_g15_1 = method.get_int(request.form.get("question_g15_1")),
+    question_g15_2 = method.get_int(request.form.get("question_g15_2")),
+    question_g15_3 = method.get_int(request.form.get("question_g15_3")),
+    question_g15_4 = method.get_int(request.form.get("question_g15_4")))
+
+    print(type(factor_answer.question_c11_1))
+    database.session.add(factor_answer)
+    database.session.commit()
+
+    return render_template(
+        'confirmation_self_answer.html',
+        self_answer = self_answer,
+        factor_answer = factor_answer)
 
 if __name__ == "__main__":
     app.run(debug=True)
