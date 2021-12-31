@@ -43,7 +43,7 @@ def post():
         numbers_of_lesson = request.form["numbers_of_lesson"],
         price_minutes = request.form["price_minutes"],
         price_month = request.form["price_month"])
-    repository = SchoolRepository.SchoolRepository()
+    repository = SchoolRepository()
     repository.insert_data(insert_table) # データの格納
     repository.find_by_id(100)
     return render_template(

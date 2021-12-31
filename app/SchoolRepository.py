@@ -9,20 +9,6 @@ from . import Database
 from .SchoolMaster import SchoolMaster
 
 
-# db_url = ("{dialect}://{username}:{password}@{host}:{port}/{database}").format(
-#     **{'dialect': 'postgresql',
-#     'username': 'ariikeisuke',
-#     'password': 'candy1225',
-#     'host': 'localhost',
-#     'port': '5432',
-#     'database': 'testdb'})
-
-# engine = create_engine(db_url)
-# Base = declarative_base()
-# SessionClass = sessionmaker(engine)  # セッションを作るクラスを作成
-# session = SessionClass()
-
-
 class SchoolRepository:
 
     def insert_data(self,school_info):
@@ -31,11 +17,11 @@ class SchoolRepository:
 
     def find_by_id(self,school_id):
         return Database.session.query(
-            SchoolMaster.school_master).filter(
-                SchoolMaster.school_master.unique_school_id == school_id)
+            SchoolMaster).filter(
+                SchoolMaster.unique_school_id == school_id)
         
     def find_by_area(self, address):
         return Database.session.query(
-            SchoolMaster.school_master).filter(
-                SchoolMaster.school_master.address.like("address%"))
+            SchoolMaster).filter(
+                SchoolMaster.address.like("address%"))
 
