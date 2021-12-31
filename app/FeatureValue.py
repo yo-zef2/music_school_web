@@ -6,9 +6,9 @@ from sqlalchemy.schema import Column
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String, Boolean
 from sqlalchemy.orm import sessionmaker
-from . import database
+from . import Database
 
-class feature(database.Base):
+class FeatureValue(Database.Base):
     __tablename__ = "feature_value"  # テーブル名を指定
     unique_school_id = Column(Integer, primary_key=True)
     coaching_history = Column(Integer)

@@ -6,10 +6,9 @@ from sqlalchemy.schema import Column
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String
 from sqlalchemy.orm import sessionmaker
-from . import database 
+from . import Database
 
-
-class school_master(database.Base):
+class SchoolMaster(Database.Base):
     __tablename__ = "school_master"  # テーブル名を指定
     unique_school_id = Column(Integer, primary_key=True)
     school_name = Column(VARCHAR)

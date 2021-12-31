@@ -9,14 +9,14 @@ from sqlalchemy.sql.expression import insert
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String
 from sqlalchemy.orm import sessionmaker
-from . import school
-from . import database
-from . import feature_value
-from . import method
-from . import question_self
-from . import question_fact
-from . import student_master_info
-from . import SchoolRepository
+from .SchoolMaster import SchoolMaster
+from . import Database
+from .FeatureValue import FeatureValue
+from . import Method
+from .QuestionSelf import QuestionSelf
+from .QuestionFact import QuestionFact
+from .StudentMaster import StudentMaster
+from .SchoolRepository import SchoolRepository
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ def index():
 @app.route("/add",methods=["post"])
 def post():
     # Webページで記入された内容を変数に格納する
-    insert_table = school.school_master(
+    insert_table = SchoolMaster(
         school_name = request.form["school_name"],
         nearest_station = request.form["station"],
         address = request.form["address"],
@@ -69,27 +69,27 @@ def show_predict_price():
 
 @app.route('/addadd',methods=["post"])
 def post_price_predict():
-    features = feature_value.feature(
+    features = FeatureValue(
         unique_school_id = request.form.get("unique_school_id"),
         coaching_history = request.form.get("coaching_history"),
-        t_childminder = method.get_boolean(request.form.get("t_childminder")),
-        t_kindergarden_teacher = method.get_boolean(request.form.get("t_kindergarden_teacher")),
-        t_vocal_music = method.get_boolean(request.form.get("t_vocal_music")),
-        t_beginner = method.get_boolean(request.form.get("t_beginner")),
-        t_contest = method.get_boolean(request.form.get("t_contest")),
+        t_childminder = Method.get_boolean(request.form.get("t_childminder")),
+        t_kindergarden_teacher = Method.get_boolean(request.form.get("t_kindergarden_teacher")),
+        t_vocal_music = Method.get_boolean(request.form.get("t_vocal_music")),
+        t_beginner = Method.get_boolean(request.form.get("t_beginner")),
+        t_contest = Method.get_boolean(request.form.get("t_contest")),
         former_university = request.form.get("former_university"),
-        composition = method.get_boolean(request.form.get("composition")),
-        study_abroad = method.get_boolean(request.form.get("study_abroad")))
+        composition = Method.get_boolean(request.form.get("composition")),
+        study_abroad = Method.get_boolean(request.form.get("study_abroad")))
     
-    database.session.add(features)
-    database.session.commit()
+    Database.session.add(features)
+    Database.session.commit()
 
     return render_template('confirmation_feature_value.html',features = features)
 
 @app.route('/motivation_assessment_form',methods=["post"])
 def motivation_assessment():
     # ここにchange_data_type_student_masterを入れ込む
-        student_info = student_master_info.change_data_type_student_master(
+        student_info = StudentMaster.change_data_type_student_master(
         student_name = request.form.get("student_name"),
         school_name = request.form.get("school_name"),
         student_age = request.form.get("student_age"),
@@ -102,73 +102,73 @@ def motivation_assessment():
         purpose_lesson = request.form.get("purpose_lesson"),
         participation_consert = request.form.get("participation_consert"))
         
-        database.session.add(student_info)
-        database.session.commit()
+        Database.session.add(student_info)
+        Database.session.commit()
         
         return render_template('motivation_assessment_form.html', student_info = student_info)
 
 @app.route('/confirm_question_self',methods=["post"])
 def post_self_question():
-    self_answer = question_self.change_data_type_self(
+    self_answer = QuestionSelf(
     unique_student_id = request.form.get("unique_student_id"),
     student_name = request.form.get("student_name"),
-    reason_a_1 = method.get_int(request.form.get("reason_a_1")),
-    reason_b_2 = method.get_int(request.form.get("reason_b_2")),
-    reason_c_3 = method.get_int(request.form.get("reason_c_3")),
-    reason_d_4 = method.get_int(request.form.get("reason_d_4")),
-    reason_e_5 = method.get_int(request.form.get("reason_e_5")),
-    reason_f_6 = method.get_int(request.form.get("reason_f_6")),
-    reason_g_7 = method.get_int(request.form.get("reason_g_7")),
-    reason_h_8 = method.get_int(request.form.get("reason_h_8")),
-    reason_i_9 = method.get_int(request.form.get("reason_i_9")),
-    reason_j_10 = method.get_int(request.form.get("reason_j_10")),
-    reason_k_11 = method.get_int(request.form.get("reason_k_11")),
-    reason_l_12 = method.get_int(request.form.get("reason_l_12")),
-    reason_m_13 = method.get_int(request.form.get("reason_m_13")),
-    reason_n_14 = method.get_int(request.form.get("reason_n_14")),
-    reason_o_15 = method.get_int(request.form.get("reason_o_15")))
+    reason_a_1 = Method.get_int(request.form.get("reason_a_1")),
+    reason_b_2 = Method.get_int(request.form.get("reason_b_2")),
+    reason_c_3 = Method.get_int(request.form.get("reason_c_3")),
+    reason_d_4 = Method.get_int(request.form.get("reason_d_4")),
+    reason_e_5 = Method.get_int(request.form.get("reason_e_5")),
+    reason_f_6 = Method.get_int(request.form.get("reason_f_6")),
+    reason_g_7 = Method.get_int(request.form.get("reason_g_7")),
+    reason_h_8 = Method.get_int(request.form.get("reason_h_8")),
+    reason_i_9 = Method.get_int(request.form.get("reason_i_9")),
+    reason_j_10 = Method.get_int(request.form.get("reason_j_10")),
+    reason_k_11 = Method.get_int(request.form.get("reason_k_11")),
+    reason_l_12 = Method.get_int(request.form.get("reason_l_12")),
+    reason_m_13 = Method.get_int(request.form.get("reason_m_13")),
+    reason_n_14 = Method.get_int(request.form.get("reason_n_14")),
+    reason_o_15 = Method.get_int(request.form.get("reason_o_15")))
 
     print(type(self_answer.reason_a_1))
-    database.session.add(self_answer)
-    database.session.commit()
+    Database.session.add(self_answer)
+    Database.session.commit()
 
-    factor_answer = question_fact.change_data_type_factor(
+    factor_answer = QuestionFact(
     unique_student_id = request.form.get("unique_student_id"),
     student_name = request.form.get("student_name"),
     question_b9_1 = request.form.get("question_b9_1"),
-    question_c11_1 = method.get_int(request.form.get("question_c11_1")),
-    question_c11_2 = method.get_int(request.form.get("question_c11_2")),
-    question_c11_3 = method.get_int(request.form.get("question_c11_3")),
-    question_c11_4 = method.get_int(request.form.get("question_c11_4")),
-    question_c11_5 = method.get_int(request.form.get("question_c11_5")),
-    question_c11_6 = method.get_int(request.form.get("question_c11_6")),
-    question_d12_1 = method.get_int(request.form.get("question_d12_1")),
-    question_d12_2 = method.get_int(request.form.get("question_d12_2")),
-    question_d12_3 = method.get_int(request.form.get("question_d12_3")),
-    question_d12_4 = method.get_int(request.form.get("question_d12_4")),
-    question_d12_5 = method.get_int(request.form.get("question_d12_5")),
-    question_d12_6 = method.get_int(request.form.get("question_d12_6")),
-    question_e13_1 = method.get_int(request.form.get("question_e13_1")),
-    question_e13_2 = method.get_int(request.form.get("question_e13_2")),
-    question_e13_3 = method.get_int(request.form.get("question_e13_3")),
-    question_e13_4 = method.get_int(request.form.get("question_e13_4")),
-    question_e13_5 = method.get_int(request.form.get("question_e13_5")),
-    question_e13_6 = method.get_int(request.form.get("question_e13_6")),
-    question_f14_1 = method.get_int(request.form.get("question_f14_1")),
-    question_f14_2 = method.get_int(request.form.get("question_f14_2")),
-    question_f14_3 = method.get_int(request.form.get("question_f14_3")),
-    question_f14_4 = method.get_int(request.form.get("question_f14_4")),
-    question_f14_5 = method.get_int(request.form.get("question_f14_5")),
-    question_f14_6 = method.get_int(request.form.get("question_f14_6")),
-    question_f14_7 = method.get_int(request.form.get("question_f14_7")),
-    question_g15_1 = method.get_int(request.form.get("question_g15_1")),
-    question_g15_2 = method.get_int(request.form.get("question_g15_2")),
-    question_g15_3 = method.get_int(request.form.get("question_g15_3")),
-    question_g15_4 = method.get_int(request.form.get("question_g15_4")))
+    question_c11_1 = Method.get_int(request.form.get("question_c11_1")),
+    question_c11_2 = Method.get_int(request.form.get("question_c11_2")),
+    question_c11_3 = Method.get_int(request.form.get("question_c11_3")),
+    question_c11_4 = Method.get_int(request.form.get("question_c11_4")),
+    question_c11_5 = Method.get_int(request.form.get("question_c11_5")),
+    question_c11_6 = Method.get_int(request.form.get("question_c11_6")),
+    question_d12_1 = Method.get_int(request.form.get("question_d12_1")),
+    question_d12_2 = Method.get_int(request.form.get("question_d12_2")),
+    question_d12_3 = Method.get_int(request.form.get("question_d12_3")),
+    question_d12_4 = Method.get_int(request.form.get("question_d12_4")),
+    question_d12_5 = Method.get_int(request.form.get("question_d12_5")),
+    question_d12_6 = Method.get_int(request.form.get("question_d12_6")),
+    question_e13_1 = Method.get_int(request.form.get("question_e13_1")),
+    question_e13_2 = Method.get_int(request.form.get("question_e13_2")),
+    question_e13_3 = Method.get_int(request.form.get("question_e13_3")),
+    question_e13_4 = Method.get_int(request.form.get("question_e13_4")),
+    question_e13_5 = Method.get_int(request.form.get("question_e13_5")),
+    question_e13_6 = Method.get_int(request.form.get("question_e13_6")),
+    question_f14_1 = Method.get_int(request.form.get("question_f14_1")),
+    question_f14_2 = Method.get_int(request.form.get("question_f14_2")),
+    question_f14_3 = Method.get_int(request.form.get("question_f14_3")),
+    question_f14_4 = Method.get_int(request.form.get("question_f14_4")),
+    question_f14_5 = Method.get_int(request.form.get("question_f14_5")),
+    question_f14_6 = Method.get_int(request.form.get("question_f14_6")),
+    question_f14_7 = Method.get_int(request.form.get("question_f14_7")),
+    question_g15_1 = Method.get_int(request.form.get("question_g15_1")),
+    question_g15_2 = Method.get_int(request.form.get("question_g15_2")),
+    question_g15_3 = Method.get_int(request.form.get("question_g15_3")),
+    question_g15_4 = Method.get_int(request.form.get("question_g15_4")))
 
     print(type(factor_answer.question_c11_1))
-    database.session.add(factor_answer)
-    database.session.commit()
+    Database.session.add(factor_answer)
+    Database.session.commit()
 
     return render_template(
         'confirmation_self_answer.html',

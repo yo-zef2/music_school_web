@@ -6,9 +6,9 @@ from sqlalchemy.schema import Column
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String, Boolean
 from sqlalchemy.orm import sessionmaker
-from . import database
+from . import Database
 
-class change_data_type_student_master(database.Base):
+class StudentMaster(Database.Base):
     __tablename__ = "student_master"  # テーブル名を指定
     unique_student_id = Column(Integer, primary_key=True)
     student_name = Column(VARCHAR)
