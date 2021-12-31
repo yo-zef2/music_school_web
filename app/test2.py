@@ -12,13 +12,8 @@ from sqlalchemy.orm import sessionmaker
 # from . import school
 # from . import database
 # from . import feature_value
-# from . import method
+import Method
 # from . import question_self
 # from . import question_fact
 # from . import student_master_info
-from SchoolRepository import SchoolRepository
-
-
-
-test = SchoolRepository()
-test.find_by_id(100)
+import SchoolRepository

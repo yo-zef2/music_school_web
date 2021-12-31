@@ -50,6 +50,11 @@ def post():
         "confirmation_school_info.html",
         insert_table=insert_table)
 
+# テスト用
+
+repository = SchoolRepository()
+repository.find_by_area("千代田区")
+
 # top.htmlを反映させるための関数
 @app.route('/top')
 def top():
