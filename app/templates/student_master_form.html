@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>生徒のマスター情報</title>
+        <link href="/static/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class = "logo"></div>
+            <img src="/static/images/lec_booster.png" alt="lec_booster">    
+            <p>{{school_name}}</p>
+        </header>
+        <class></class>
+        <nav>
+            <h1>診断したい生徒の情報を入れ込んでください</h1>
+        </nav>
+        <form action="/motivation_assessment_form" method="POST">
+        <p><h1>▼習い事/レッスンを通っている理由について当てはまるものにチェックをつけてください</h1><br>
+            <p>生徒名を入れてください<br>
+            <input required type="text" name="student_name" placeholder="(例)ありけー"><br>  
+            <p>▼テスト用：教室名を入れてください {{school_name}}<br>
+            <input type="hidden" name="school_name" value = {{school_name}}>         
+            <p>▼生徒の年齢を入れてください<br>
+            <input required type="number" name="student_age" placeholder="8歳"><br>  
+            <p>▼家族構成を教えてください<br>
+            <input required type="radio" name="family_structure" value = 1>末っ子<br>
+            <input required type="radio" name="family_structure" value = 2>真ん中っこ<br>
+            <input required type="radio" name="family_structure" value = 3>長男 or 長女<br>
+            <p>▼住所を教えてください<br>
+            <input required type="text" name="student_address" placeholder="秋葉原岩本町"><br> 
+            <p>▼演奏歴(年数)を教えてください<br>
+            <input required type="number" name="playing_history" placeholder="2"><br> 
+            <p>▼レッスンに通った年数を教えてください<br>
+            <input required type="number" name="learning_history" placeholder="1"><br> 
+            <p>▼演奏レベルを教えてください<br>
+            <input required type="radio" name="performance_level" value = 1>レベル1<br>
+            <input required type="radio" name="performance_level" value = 2>レベル2<br>
+            <input required type="radio" name="performance_level" value = 3>レベル3<br>
+            <input required type="radio" name="performance_level" value = 4>レベル4<br>   
+            <p>▼毎レッスンの宿題の進捗度を教えてください<br>
+            <input required type="radio" name="achivement_homework" value = 1>レベル1<br>
+            <input required type="radio" name="achivement_homework" value = 2>レベル2<br>
+            <input required type="radio" name="achivement_homework" value = 3>レベル3<br>
+            <input required type="radio" name="achivement_homework" value = 4>レベル4<br>   
+            <p>▼レッスンに通っている目的を教えてください<br>
+            <input required type="radio" name="purpose_lesson" value = 1>レベル1<br>
+            <input required type="radio" name="purpose_lesson" value = 2>レベル2<br>
+            <input required type="radio" name="purpose_lesson" value = 3>レベル3<br>
+            <input required type="radio" name="purpose_lesson" value = 4>レベル4<br>     
+            <p>演奏者として発表回に参加した回数を教えてください<br>
+            <input required type="radio" name="participation_consert" value = 1>レベル1<br>
+            <input required type="radio" name="participation_consert" value = 2>レベル2<br>
+            <input required type="radio" name="participation_consert" value = 3>レベル3<br>
+            <input required type="radio" name="participation_consert" value = 4>レベル4<br>     
+            <input required type="submit" value="生徒のモチベーション診断を行う"></p>
+        </form>
+        <footer>
+            <small>(C)2021 Lec.Booster.</small>
+        </footer>
+    </body>
+    </html>

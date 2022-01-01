@@ -17,22 +17,19 @@
             <p>{{insert_table.price_minutes}}</p>
             <p>{{insert_table.price_month}}</p>
         </header>
+        <form action="/predict_price_form" method="POST">
+            <input type="hidden" name="unique_school_id" value = {{insert_table.unique_school_id}}>
+            <input required type="submit" value="価格の予測診断を行う"></p>
+        </form>
+        <form action="/student_master_form" method="POST">
+            <input type="hidden" name="school_name" value = {{insert_table.school_name}}>
+            <input required type="submit" value="生徒のモチベーション診断を行う"></p>
+        </form>
         <a href = "index"><h1>記入ページに戻る</h1></a>
+        <a href = "motivation_assessment_form"><h1>生徒のモチベーション診断を行う</h1></a>
+        <a href = "predict_price_form"><h1>価格の予測診断を行う</h1></a>
         <footer>
             <small>(C)2021 Lec.Booster.</small>
         </footer>
     </body>
 </html>
-<!-- 
-unique_school_id = Column(Integer, primary_key=True)
-school_name = Column(VARCHAR)
-nearest_station = Column(VARCHAR)
-address = Column(VARCHAR)
-operating_hour = Column(Integer)
-lesson_hour = Column(Integer)
-distance_station = Column(Integer)
-number_students = Column(Integer)
-lesson_time = Column(Integer)
-numbers_of_lesson = Column(Integer)
-price_minutes = Column(Integer)
-price_month = Column(Integer) -->

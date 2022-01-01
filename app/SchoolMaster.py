@@ -6,23 +6,9 @@ from sqlalchemy.schema import Column
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String
 from sqlalchemy.orm import sessionmaker
+from . import Database
 
-# from app.app import school_master_db
-
-db_url = ("{dialect}://{username}:{password}@{host}:{port}/{database}").format(
-    **{'dialect': 'postgresql',
-    'username': 'ariikeisuke',
-    'password': 'candy1225',
-    'host': 'localhost',
-    'port': '5432',
-    'database': 'testdb'})
-
-engine = create_engine(db_url)
-Base = declarative_base()
-SessionClass = sessionmaker(engine)  # セッションを作るクラスを作成
-session = SessionClass()
-
-class school_master(Base):
+class SchoolMaster(Database.Base):
     __tablename__ = "school_master"  # テーブル名を指定
     unique_school_id = Column(Integer, primary_key=True)
     school_name = Column(VARCHAR)

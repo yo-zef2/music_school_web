@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>生徒のモチベーション診断</title>
+        <link href="/static/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class = "logo"></div>
+            <img src="/static/images/lec_booster.png" alt="lec_booster">    
+        </header>
+        <class></class>
+        <nav>
+            <h1>生徒のモチベーション診断</h1>
+        </nav>
+        <form action="/confirm_question_self" method="POST">
+        <p><h1>▼{{student_info.student_name}}さんについて、習い事/レッスンを通っている理由について当てはまるものにチェックをつけてください</h1><br>
+            <input type="hidden" name="unique_student_id" value = {{student_info.unique_student_id}}>
+            <input type="hidden" name="student_name" value = {{student_info.student_name}}>
+            ▼通うことで、何か報酬(お金、昇級など)が貰えるから<br>
+            <input required type="radio" name="reason_a_1" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_a_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_a_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_a_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_a_1" value = 5>とてもそう思う<br>                 
+            ▼通わないと、周りから怒られるから<br>
+            <input required type="radio" name="reason_b_2" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_b_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_b_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_b_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_b_2" value = 5>とてもそう思う<br>   
+            規則のようなものだから<br>
+            <input required type="radio" name="reason_c_3" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_c_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_c_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_c_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_c_3" value = 5>とてもそう思う<br>   
+            友人に良い印象を与えたいから<br>
+            <input required type="radio" name="reason_d_4" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_d_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_d_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_d_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_d_4" value = 5>とてもそう思う<br>   
+            辞めることに罪悪感があるから<br>
+            <input required type="radio" name="reason_e_5" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_e_5" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_e_5" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_e_5" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_e_5" value = 5>とてもそう思う<br>   
+            通わないと何となく不安だから<br>
+            <input required type="radio" name="reason_f_6" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_f_6" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_f_6" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_f_6" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_f_6" value = 5>とてもそう思う<br>   
+            習い事/レッスンに通うことは良いことだ と思うから<br>
+            <input required type="radio" name="reason_g_7" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_g_7" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_g_7" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_g_7" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_g_7" value = 5>とてもそう思う<br>   
+            習い事/レッスンに通うことは大切なこと だと思うから<br>
+            <input required type="radio" name="reason_h_8" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_h_8" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_h_8" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_h_8" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_h_8" value = 5>とてもそう思う<br>   
+            習い事/レッスンの経験が社会では必要だ と思うから<br>
+            <input required type="radio" name="reason_i_9" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_i_9" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_i_9" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_i_9" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_i_9" value = 5>とてもそう思う<br>   
+            希望している進路(学校,会社,職種など)を 実現したいから<br>
+            <input required type="radio" name="reason_j_10" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_j_10" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_j_10" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_j_10" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_j_10" value = 5>とてもそう思う<br>   
+            将来の成功につながるから<br>
+            <input required type="radio" name="reason_k_11" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_k_11" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_k_11" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_k_11" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_k_11" value = 5>とてもそう思う<br>   
+            自分の夢を叶えたいから<br>
+            <input required type="radio" name="reason_l_12" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_l_12" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_l_12" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_l_12" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_l_12" value = 5>とてもそう思う<br>   
+            新しいスキルや技術の発見が面白いか ら<br>
+            <input required type="radio" name="reason_m_13" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_m_13" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_m_13" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_m_13" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_m_13" value = 5>とてもそう思う<br>   
+            自分の能力を磨き上げる過程で満足を感じるから<br>
+            <input required type="radio" name="reason_n_14" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_n_14" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_n_14" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_n_14" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_n_14" value = 5>とてもそう思う<br>   
+            この活動に本当に没頭しているとわくわくするから<br>
+            <input required type="radio" name="reason_o_15" value = 1>そう思わない<br>
+            <input required type="radio" name="reason_o_15" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="reason_o_15" value = 3>どちらでもない<br>
+            <input required type="radio" name="reason_o_15" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="reason_o_15" value = 5>とてもそう思う<br>
+            
+            因子用：一週間当たりの練習時間(時間)について教えてください<br>
+            <input required type="number" name="question_b9_1" placeholder="(例)20"><br>
+            レッスンのきっかけについて教えてください<br>
+            誰かからのプレッシャーが欲しいから<br>
+            <input required type="radio" name="question_c11_1" value = 1>そう思わない<br>
+            <input required type="radio" name="question_c11_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_c11_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_c11_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_c11_1" value = 5>とてもそう思う<br>
+            友人からの刺激が欲しいから<br>
+            <input required type="radio" name="question_c11_2" value = 1>そう思わない<br>
+            <input required type="radio" name="question_c11_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_c11_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_c11_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_c11_2" value = 5>とてもそう思う<br>
+            近親者からの勧め<br>
+            <input required type="radio" name="question_c11_3" value = 1>そう思わない<br>
+            <input required type="radio" name="question_c11_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_c11_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_c11_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_c11_3" value = 5>とてもそう思う<br>
+            スキルの衰えを感じたから<br>
+            <input required type="radio" name="question_c11_4" value = 1>そう思わない<br>
+            <input required type="radio" name="question_c11_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_c11_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_c11_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_c11_4" value = 5>とてもそう思う<br>
+            キュリアに不安を感じたため<br>
+            <input required type="radio" name="question_c11_5" value = 1>そう思わない<br>
+            <input required type="radio" name="question_c11_5" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_c11_5" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_c11_5" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_c11_5" value = 5>とてもそう思う<br>
+            新しい趣味や特技が欲しかったため<br>
+            <input required type="radio" name="question_c11_6" value = 1>そう思わない<br>
+            <input required type="radio" name="question_c11_6" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_c11_6" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_c11_6" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_c11_6" value = 5>とてもそう思う<br>
+            レッスンの目的について教えてください<br>
+
+            特技を通じた成長<br>
+            <input required type="radio" name="question_d12_1" value = 1>そう思わない<br>
+            <input required type="radio" name="question_d12_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_d12_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_d12_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_d12_1" value = 5>とてもそう思う<br>
+            人との繋がり<br>
+            <input required type="radio" name="question_d12_2" value = 1>そう思わない<br>
+            <input required type="radio" name="question_d12_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_d12_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_d12_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_d12_2" value = 5>とてもそう思う<br>
+            強みとして認識されたい<br>
+            <input required type="radio" name="question_d12_3" value = 1>そう思わない<br>
+            <input required type="radio" name="question_d12_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_d12_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_d12_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_d12_3" value = 5>とてもそう思う<br>
+            スキルレベルの維持<br>
+            <input required type="radio" name="question_d12_4" value = 1>そう思わない<br>
+            <input required type="radio" name="question_d12_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_d12_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_d12_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_d12_4" value = 5>とてもそう思う<br>
+            理想の自分になる<br>
+            <input required type="radio" name="question_d12_5" value = 1>そう思わない<br>
+            <input required type="radio" name="question_d12_5" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_d12_5" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_d12_5" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_d12_5" value = 5>とてもそう思う<br>
+            キャリアアップのため<br>
+            <input required type="radio" name="question_d12_6" value = 1>そう思わない<br>
+            <input required type="radio" name="question_d12_6" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_d12_6" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_d12_6" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_d12_6" value = 5>とてもそう思う<br>
+
+            どんな人に成果を見てもらいたいですか<br>
+
+            レッスンの先生<br>
+            <input required type="radio" name="question_e13_1" value = 1>そう思わない<br>
+            <input required type="radio" name="question_e13_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_e13_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_e13_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_e13_1" value = 5>とてもそう思う<br>
+            レッスンのコミュニティ<br>
+            <input required type="radio" name="question_e13_2" value = 1>そう思わない<br>
+            <input required type="radio" name="question_e13_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_e13_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_e13_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_e13_2" value = 5>とてもそう思う<br>
+            所属コミュニにティ(学校や会社)など<br>
+            <input required type="radio" name="question_e13_3" value = 1>そう思わない<br>
+            <input required type="radio" name="question_e13_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_e13_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_e13_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_e13_3" value = 5>とてもそう思う<br>
+            友人<br>
+            <input required type="radio" name="question_e13_4" value = 1>そう思わない<br>
+            <input required type="radio" name="question_e13_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_e13_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_e13_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_e13_4" value = 5>とてもそう思う<br>
+            恋人<br>
+            <input required type="radio" name="question_e13_5" value = 1>そう思わない<br>
+            <input required type="radio" name="question_e13_5" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_e13_5" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_e13_5" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_e13_5" value = 5>とてもそう思う<br>
+            家族<br>
+            <input required type="radio" name="question_e13_6" value = 1>そう思わない<br>
+            <input required type="radio" name="question_e13_6" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_e13_6" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_e13_6" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_e13_6" value = 5>とてもそう思う<br>
+
+            最も嬉しかった出来事は何か<br>
+
+            自分の成長を実感<br>
+            <input required type="radio" name="question_f14_1" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_1" value = 5>とてもそう思う<br>
+            仲間とともに成果を残した時<br>
+            <input required type="radio" name="question_f14_2" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_2" value = 5>とてもそう思う<br>
+            所属コミュニティに認められた時<br>
+            <input required type="radio" name="question_f14_3" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_3" value = 5>とてもそう思う<br>
+            先生に褒められた時<br>
+            <input required type="radio" name="question_f14_4" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_4" value = 5>とてもそう思う<br>
+            友達から褒められた時<br>
+            <input required type="radio" name="question_f14_5" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_5" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_5" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_5" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_5" value = 5>とてもそう思う<br>
+            近親者から褒められた時<br>
+            <input required type="radio" name="question_f14_6" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_6" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_6" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_6" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_6" value = 5>とてもそう思う<br>
+            資格を獲得できた時<br>
+            <input required type="radio" name="question_f14_7" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_7" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_7" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_7" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_7" value = 5>とてもそう思う<br>
+
+            独学でない理由は何か<br>
+
+            先生からの圧が欲しいから<br>
+            <input required type="radio" name="question_g15_1" value = 1>そう思わない<br>
+            <input required type="radio" name="question_g15_1" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_g15_1" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_g15_1" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_g15_1" value = 5>とてもそう思う<br>
+            仲間とともに成果を残した時<br>
+            <input required type="radio" name="question_f14_2" value = 1>そう思わない<br>
+            <input required type="radio" name="question_f14_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_f14_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_f14_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_f14_2" value = 5>とてもそう思う<br>
+            コミュニティに所属したい<br>
+            <input required type="radio" name="question_g15_2" value = 1>そう思わない<br>
+            <input required type="radio" name="question_g15_2" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_g15_2" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_g15_2" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_g15_2" value = 5>とてもそう思う<br>
+            確実なスキルアップ<br>
+            <input required type="radio" name="question_g15_3" value = 1>そう思わない<br>
+            <input required type="radio" name="question_g15_3" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_g15_3" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_g15_3" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_g15_3" value = 5>とてもそう思う<br>
+            独学への限界<br>
+            <input required type="radio" name="question_g15_4" value = 1>そう思わない<br>
+            <input required type="radio" name="question_g15_4" value = 2>どちらかというと思わない<br>
+            <input required type="radio" name="question_g15_4" value = 3>どちらでもない<br>
+            <input required type="radio" name="question_g15_4" value = 4>どちらかというとそう思う<br>
+            <input required type="radio" name="question_g15_4" value = 5>とてもそう思う<br>
+
+            <input required type="submit" value="Submit"></p>
+        </form>
+        <footer>
+            <small>(C)2021 Lec.Booster.</small>
+        </footer>
+    </body>
+    </html>
+
+    <!-- create table question_factor_master(
+	
+	
+	
+			varchar(255),						-- E13..成果を見て貰いたい人.習い事.レッスンの先生
+			varchar(255),						-- E13..成果を見て貰いたい人.習い事.レッスンのコミュニティ
+			varchar(255),						-- E13..成果を見て貰いたい人.所属コミュニにティ学校.会社など
+			varchar(255),						-- E13..成果を見て貰いたい人.友人
+			varchar(255),						-- E13..成果を見て貰いたい人.
+			varchar(255),						-- E13..成果を見て貰いたい人.家族
+			varchar(255),						-- F14..最も嬉しかった出来事.自分の成長を実感
+			varchar(255),						-- F14..最も嬉しかった出来事.仲間とともに成果を残した時
+			varchar(255),						-- F14..最も嬉しかった出来事.所属コミュニティに認められた時
+			varchar(255),						-- F14..最も嬉しかった出来事.先生に褒められた時
+			varchar(255),						-- F14..最も嬉しかった出来事.友達から褒められた時
+			varchar(255),						-- F14..最も嬉しかった出来事.近親者から褒められた時
+			varchar(255),						-- F14..最も嬉しかった出来事.資格を獲得できた時
+			varchar(255),						-- G15..独学でない理由.先生からの圧
+			varchar(255),						-- G15..独学でない理由.コミュニティに所属したい
+			varchar(255),						-- G15..独学でない理由.確実なスキルアップ
+			varchar(255)						-- G15..独学でない理由.独学への限界.
+); -->
