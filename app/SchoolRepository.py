@@ -13,11 +13,19 @@ from .SchoolMaster import SchoolMaster
 
 class SchoolRepository:
 
+    " SchoolMasterのCRUD操作"
+
     def insert_data(self,school_info):
+        
+        "SchoolMasterへのデータインサート"
+
         Database.session.add(school_info)
         Database.session.commit()
 
     def find_by_id(self,school_id):
+
+        "IDでSchoolMasterから情報を取得する"
+
         school_info_by_id = Database.session.query(
             SchoolMaster).filter(
                 SchoolMaster.unique_school_id == school_id).first()
@@ -38,6 +46,9 @@ class SchoolRepository:
         return school_info
 
     def find_by_area(self, address):
+
+        "エリアごとにSchoolMasterから情報を取得する"
+
         school_info_by_area = Database.session.query(
             SchoolMaster).filter(
                 SchoolMaster.address.like(
@@ -61,25 +72,3 @@ class SchoolRepository:
         school_info_by_area = pd.DataFrame(school_info_list)
         print(school_info_by_area)
         return school_info_by_area
-
-# db_url = ("{dialect}://{username}:{password}@{host}:{port}/{database}").format(
-#     **{'dialect': 'postgresql',
-#     'username': 'ariikeisuke',
-#     'password': 'candy1225',
-#     'host': 'localhost',
-#     'port': '5432',
-#     'database': 'testdb'})
-
-        # school_info_by_area = Database.session.query(
-        #     SchoolMaster).filter(
-        #         SchoolMaster.address.like(
-        #             "{address}%".format(**{"address" : address}))).all()
-
-    # def find_by_area(self, address):
-    #     school_info_by_area = Database.session.query(
-    #         SchoolMaster).filter(
-    #             SchoolMaster.address == "1").all()
-    #     print(type(school_info_by_area))
-    #     for school_info in school_info_by_area:
-    #         print(school_info.address)
-    #     return school_info_by_area

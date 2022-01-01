@@ -17,6 +17,7 @@ from .QuestionSelf import QuestionSelf
 from .QuestionFact import QuestionFact
 from .StudentMaster import StudentMaster
 from .SchoolRepository import SchoolRepository
+from .StudentRepository import StudentRepository
 
 app = Flask(__name__)
 
@@ -45,15 +46,14 @@ def post():
         price_month = request.form["price_month"])
     repository = SchoolRepository()
     repository.insert_data(insert_table) # データの格納
-    repository.find_by_id(100)
     return render_template(
         "confirmation_school_info.html",
         insert_table=insert_table)
 
-# テスト用
+# # SchoolMasterのCRUD操作のテスト用
 
-repository = SchoolRepository()
-repository.find_by_area("千代田区")
+# repository = SchoolRepository()
+# repository.find_by_area("千代田区")
 
 # top.htmlを反映させるための関数
 @app.route('/top')
@@ -94,7 +94,7 @@ def post_price_predict():
 @app.route('/motivation_assessment_form',methods=["post"])
 def motivation_assessment():
     # ここにchange_data_type_student_masterを入れ込む
-        student_info = StudentMaster.change_data_type_student_master(
+        student_info = StudentMaster(
         student_name = request.form.get("student_name"),
         school_name = request.form.get("school_name"),
         student_age = request.form.get("student_age"),
@@ -107,10 +107,17 @@ def motivation_assessment():
         purpose_lesson = request.form.get("purpose_lesson"),
         participation_consert = request.form.get("participation_consert"))
         
-        Database.session.add(student_info)
-        Database.session.commit()
-        
+        repository = StudentRepository()
+        repository.insert_data(student_info) # データの格納
+
         return render_template('motivation_assessment_form.html', student_info = student_info)
+
+
+# StudentMasterのCRUD操作のテスト用
+
+repository = StudentRepository()
+repository.find_by_id(5)
+
 
 @app.route('/confirm_question_self',methods=["post"])
 def post_self_question():
