@@ -18,6 +18,9 @@ from .QuestionFact import QuestionFact
 from .StudentMaster import StudentMaster
 from .SchoolRepository import SchoolRepository
 from .StudentRepository import StudentRepository
+from .QusetionSelfRepository import QuestionSelfRepository
+from .QuestionFactRepository import QuestionFactRepository
+from .FeatureValueRepository import FeatureValueRepository
 
 app = Flask(__name__)
 
@@ -85,11 +88,16 @@ def post_price_predict():
         former_university = request.form.get("former_university"),
         composition = Method.get_boolean(request.form.get("composition")),
         study_abroad = Method.get_boolean(request.form.get("study_abroad")))
-    
-    Database.session.add(features)
-    Database.session.commit()
+
+    repository = FeatureValueRepository()
+    repository.insert_data(features)
 
     return render_template('confirmation_feature_value.html',features = features)
+
+# # FeatureValueのCRUD操作のテスト用
+
+# repository = FeatureValueRepository()
+# repository.find_by_id(339)
 
 @app.route('/motivation_assessment_form',methods=["post"])
 def motivation_assessment():
@@ -113,10 +121,10 @@ def motivation_assessment():
         return render_template('motivation_assessment_form.html', student_info = student_info)
 
 
-# StudentMasterのCRUD操作のテスト用
+# # StudentMasterのCRUD操作のテスト用
 
-repository = StudentRepository()
-repository.find_by_id(5)
+# repository = StudentRepository()
+# repository.find_by_id(5)
 
 
 @app.route('/confirm_question_self',methods=["post"])
@@ -140,9 +148,8 @@ def post_self_question():
     reason_n_14 = Method.get_int(request.form.get("reason_n_14")),
     reason_o_15 = Method.get_int(request.form.get("reason_o_15")))
 
-    print(type(self_answer.reason_a_1))
-    Database.session.add(self_answer)
-    Database.session.commit()
+    repository = QuestionSelfRepository()
+    repository.insert_data(self_answer)
 
     factor_answer = QuestionFact(
     unique_student_id = request.form.get("unique_student_id"),
@@ -178,14 +185,23 @@ def post_self_question():
     question_g15_3 = Method.get_int(request.form.get("question_g15_3")),
     question_g15_4 = Method.get_int(request.form.get("question_g15_4")))
 
-    print(type(factor_answer.question_c11_1))
-    Database.session.add(factor_answer)
-    Database.session.commit()
+    repository = QuestionFactRepository()
+    repository.insert_data(factor_answer)
 
     return render_template(
         'confirmation_self_answer.html',
         self_answer = self_answer,
         factor_answer = factor_answer)
+
+# # QuestionSelfのCRUD操作のテスト用
+
+# repository = QuestionSelfRepository()
+# repository.find_by_id(11)
+
+# # QuestionFactのCRUD操作のテスト用
+
+# repository = QuestionFactRepository()
+# repository.find_by_id(11)
 
 if __name__ == "__main__":
     app.run(debug=True)

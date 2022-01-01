@@ -14,11 +14,11 @@ class StudentRepository:
 
     " StudentMasterのCRUD操作"
 
-    def insert_data(self,Student_info):
+    def insert_data(self,student_info):
         
         "StudentMasterへのデータインサート"
 
-        Database.session.add(Student_info)
+        Database.session.add(student_info)
         Database.session.commit()
 
     def find_by_id(self,Student_id):
