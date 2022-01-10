@@ -1,44 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>音楽教室</title>
+        <title>音楽教室マスター</title>
         <link href="/static/css/style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <header>
-            <div class = "logo">
-                <img src="/static/images/lec_booster.png" alt="lec_booster"></div>  
-        </header>
-        <class></class>
-        <nav>
-            <a href = "index"><h1>音楽教室の働き方改革</h1>></a>
-        </nav>
-        <form action="/add" method="POST">
-            <p>▼教室名をご記入ください<br>
-            <input required type="text" name="school_name" placeholder="(例)lec音楽教室 "><br>
-            ▼最寄駅をご記入ください<br>
-            <input required type="text" name="station" placeholder="(例)岩本町駅"><br>
-            ▼住所をご記入ください<br>
-            <input required type="text" name="address" placeholder="(例)千代田区岩本町"><br>
-            ▼最大稼働時間をご記入ください<br>
-            <input required type="number" name="operating_hour" placeholder="(例)20"><br>
-            ▼現在の稼働時間をご記入ください<br>
-            <input required type="number" name="lesson_hour" placeholder="(例)12"><br>
-            ▼最寄駅までの距離をご記入ください(時間:分)<br>
-            <input required type="number" name="distance" placeholder="(例)5"><br>
-            ▼生徒の数をご記入ください<br>
-            <input required type="number" name="number_student" placeholder="(例)10"><br>
-            ▼レッスンの時間/一回あたりをご記入ください<br>
-            <input required type="number" name="lesson_time" placeholder="(例)45"><br>
-            ▼レッスンの回数/月をご記入ください<br>
-            <input required type="number" name="numbers_of_lesson" placeholder="(例)3"><br>
-            ▼価格/分をご記入ください<br>
-            <input required type="number" name="price_minutes" placeholder="(例)2000"><br>
-            ▼価格/月をご記入ください<br>
-            <input required type="number" name="price_month" placeholder="(例)10000"><br>
-            <input required type="submit" value="Submit"></p>
-        </form>
+  
+    <body id="school-master">
+      
+    <header>
+      <div class="logo">
+        <a href="index"><img src="/static/images/lec_booster.png" alt="lec_booster"></a>
+      </div>
+      <nav>
+        <ul class="grobal-nav">
+          <li>Portfolio</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+      
+         <!--wrap始まり-->
+    <div id="wrap">
+      <div class="content">
+        <h1>生徒のモチベーション診断と音楽教の価格診断</h1>
+        <p>診断を行うにあたって、音楽教室の基本情報をご記入ください。</p>
+      </div>
+    </div>    
+    <!--wrap終わり--> 
+    
+    <!--formの記入-->
+    <secion>
+      <h1 class="icon">Input School Master Information</h1>
+      <div class="form">
+      <form action="/add" method="POST">
+        <dl>
+          <dt>▼教室名をご記入ください</dt>
+          <dd><input required type="text" name="school_name" placeholder="(例)lec音楽教室 "></dd>
+          <dt>▼最寄駅をご記入ください</dt>
+          <dd><input required type="text" name="station" placeholder="(例)岩本町駅"></dd>
+          <dt>▼住所をご記入ください</dt>
+          <dd><input required type="text" name="address" placeholder="(例)千代田区岩本町"></dd>
+          <dt>▼最大稼働時間をご記入ください</dt>
+          <dd><input required type="number" name="operating_hour" placeholder="(例)20"></dd>
+          <dt>▼現在の稼働時間をご記入ください</dt>
+          <dd><input required type="number" name="lesson_hour" placeholder="(例)12"></dd>
+          <dt>▼最寄駅までの距離をご記入ください(時間:分)</dt>
+          <dd><input required type="number" name="distance" placeholder="(例)5"></dd>
+          <dt>▼生徒の数をご記入ください</dt>
+          <dd><input required type="number" name="number_student" placeholder="(例)10"></dd>
+          <dt>▼レッスンの時間/一回あたりをご記入ください</dt>
+          <dd><input required type="number" name="lesson_time" placeholder="(例)45"></dd>
+          <dt>▼レッスンの回数/月をご記入ください</dt>
+          <dd><input required type="number" name="numbers_of_lesson" placeholder="(例)3"></dd>
+          <dt>▼価格/分をご記入ください</dt>
+          <dd><input required type="number" name="price_minutes" placeholder="(例)2000"></dd>
+          <dt>▼価格/月をご記入ください</dt>
+          <dd><input required type="number" name="price_month" placeholder="(例)10000"></dd>
+<!--          <input required type="submit" value="Submit" class="btn">-->
+        </dl>
+        <button required type="submit" class="btn">提出する</button>
+      </form>
+      <div class="attention">
+         <p>* 全項目記入してください</p>
+        </div>
+        </div>
+      </secion>
         <footer>
             <small>(C)2021 Lec.Booster.</small>
         </footer>

@@ -7,5 +7,7 @@
 			"path": "../../Documents/Snappers"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }

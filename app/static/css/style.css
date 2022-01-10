@@ -104,6 +104,8 @@ footer small{
     margin-bottom: 20px;
 }
 
+
+
 /*indexの見出しとHeaderの間の間隔*/
 
 #index .content{
@@ -111,11 +113,29 @@ footer small{
 }
 
 
+
 #index p {
     font-size: 20px;
     color: #ffffff;
     font-family: 'Bitter', serif;
 }
+
+
+
+#index footer {
+    width: 960px;
+    margin: 150px auto 0 auto;
+    text-align: left;
+}
+
+#index {
+    background-image: url(../images/Piano.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 
 /*ボタンのレイアウト*/
 
@@ -141,20 +161,92 @@ footer small{
     color: #009cd3;
 }
 
-#index footer {
-    width: 960px;
-    margin: 150px auto 0 auto;
-    text-align: left;
+
+/*school-masterの見出し*/
+
+#school-master h1 {
+    font-size: 30px;
+    line-height: 1;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+    margin-bottom: 20px;
 }
 
-#index {
-    background-image: url(../images/Piano.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
+/*school-masterの見出しとHeaderの間の感覚*/
+
+#school-master .content{
+    margin-top: 40px;
+}
+
+/*school-masterのcontetエリアのp要素*/
+
+#school-master p {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+}
+
+.icon:before{
+  content:"";
+  padding-right: 10px;
+  border-left: 7px solid #9cb4a4;
+}
+
+#school-master .icon {
+  font-size: 35px;
+  font-family: 'Bitter', serif;
+  width: 960px;
+  margin: 0 auto;
+  
+}
+
+#school-master .form{
+  background-color: darkgray;
+  font-family: 'Bitter', serif;
+  color: #ffffff;
+  padding:20px 50px;
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#school-master .form dl dt{
+  font-size: 16px;
+  font-family: 'Bitter', serif;
+  width: 400px;
+  padding: 10px 0;
+  float: left;
+  clear: both;
+}
+
+#school-master .form dl dd{
+  padding: 16px 0;
+}
+
+/*ボタンのレイアウト*/
+
+#school-master .form button {
+    background-color: #009cd3;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'Bitter', serif;
+    width: 100px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 3px solid #009cd3;
+}
+
+#school-master .form button:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #009cd3;
+    cursor: pointer;
 }
 
 
-
-
+#school-master .form .attention{
+  margin: 10px 0 0 165px;
+}
