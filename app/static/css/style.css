@@ -1,11 +1,12 @@
 @charset "utf-8";
 
+
 body {
-    margin: 0;
-    padding: 0;
+    margin: 50;
+    padding: 50;
     background-color: dimgray;
     color: floralwhite;
-    font-size: 15px;
+    font-size: 10px;
     line-height: 2;
     font-family: 'Bitter', serif;
 }
@@ -46,18 +47,19 @@ header {
 }
     
 .logo {
-    float: left;
-    margin-top: 50px;
+  text-align: left;
+  float: left;
+  margin-top: 5px;
 }
 
 .grobal-nav {
-    float: right;
-    margin-top: 60px;
+  float: right;
+  margin-top: 50px;
 }
 
 .grobal-nav li{
     float: left;
-    margin: 0 20px;
+    margin: 0 10px;
     font-size: 20px;
     list-style: none;
 }
@@ -67,8 +69,8 @@ header {
 }
 
 .grobal-nav li a:hover {
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 3px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 2px;
     text-decoration: none;
 }
 
@@ -92,7 +94,7 @@ footer small{
 }
 
 #index h1 {
-    font-size: 100px;
+    font-size: 10px;
     line-height: 1;
     color: #ffffff;
     font-family: 'Bitter', serif;
