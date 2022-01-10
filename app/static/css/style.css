@@ -247,6 +247,75 @@ footer small{
 }
 
 
-#school-master .form .attention{
-  margin: 10px 0 0 165px;
+#school-master .form .attention p{
+  font-size: 13px;
+}
+
+
+#confirmation .content p {
+    font-size: 16px;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+}
+
+#confirmation .content{
+  margin-top: 40px;
+}
+
+
+#confirmation .form{
+  background-color: darkgray;
+  font-family: 'Bitter', serif;
+  color: #ffffff;
+  padding:50px 50px;
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#confirmation .form dl dt{
+  font-size: 16px;
+  font-family: 'Bitter', serif;
+  width: 400px;
+  padding: 10px 0;
+  float: left;
+  clear: both;
+}
+
+#confirmation .form dl dd{
+  padding: 16px 0;
+}
+
+#confirmation .icon {
+  font-size: 35px;
+  font-family: 'Bitter', serif;
+  width: 960px;
+  margin: 0 auto;
+  
+}
+
+#confirmation .form button {
+    background-color: #009cd3;
+    color: #ffffff;
+    float: left;
+/*  　margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin: 10px 10px 10px 10px;*/
+    font-size: 15px;
+    font-family: 'Bitter', serif;
+    width: 250px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 3px solid #009cd3;
+  margin: 0 auto;
+}
+
+#confirmation .form button:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #009cd3;
+    cursor: pointer;
 }

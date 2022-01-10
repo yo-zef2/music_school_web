@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <h1>ご記入頂いた教室情報はこちらです</h1>
+      <title>音楽教室情報の確認</title>
+      <link href="/static/css/style.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body>
+  
+  
+    <body id="confirmation">
         <header>
-            <p>{{insert_table.school_name}}</p>
-            <p>{{insert_table.nearest_station}}</p>
-            <p>{{insert_table.address}}</p>
-            <p>{{insert_table.operating_hour}}</p>
-            <p>{{insert_table.lesson_hour}}</p>
-            <p>{{insert_table.distance_station}}</p>
-            <p>{{insert_table.number_students}}</p>
-            <p>{{insert_table.lesson_time}}</p>
-            <p>{{insert_table.numbers_of_lesson}}</p>
-            <p>{{insert_table.price_minutes}}</p>
-            <p>{{insert_table.price_month}}</p>
-        </header>
+          <div class="logo">
+            <a href="index"><img src="/static/images/lec_booster.png" alt="lec_booster"></a>
+          </div>
+          <nav>
+        <ul class="grobal-nav">
+          <li>Portfolio</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      </header>
+      
+      <!--wrap始まり-->
+      <div id="wrap">
+        <div class="content">
+            <p>ご記入いただきありがとうございました!<br>
+              ご記入内容をご確認の上、診断へお進みください。</p>
+        </div>
+      </div>
+      
+      <!--wrap終わり-->
+      
+      <secion>
+      <h1 class="icon">Confirm Your School Master Information</h1>
+      <div class="form">
+        <dl>
+          <dt>▼教室名</dt>
+          <dd>{{insert_table.school_name}}</dd>
+          <dt>▼最寄駅</dt>
+          <dd>{{insert_table.nearest_station}}</dd>
+          <dt>▼住所</dt>
+          <dd>{{insert_table.address}}</dd>
+          <dt>▼最大稼働時間</dt>
+          <dd>{{insert_table.operating_hour}}</dd>
+          <dt>▼現在の稼働時間</dt>
+          <dd>{{insert_table.lesson_hour}}</dd>
+          <dt>▼最寄り駅までの距離</dt>
+          <dd>{{insert_table.distance_station}}</dd>
+          <dt>▼生徒の数</dt>
+          <dd>{{insert_table.number_students}}</dd>
+          <dt>▼レッスンの時間/一回あたり</dt>
+          <dd>{{insert_table.lesson_time}}</dd>
+          <dt>▼レッスンの回数/月</dt>
+          <dd>{{insert_table.numbers_of_lesson}}</dd>
+          <dt>▼価格/分</dt>
+          <dd>{{insert_table.price_minutes}}</dd>
+          <dt>▼価格/月</dt>
+          <dd>{{insert_table.price_month}}</dd>
+        </dl>
         <form action="/predict_price_form" method="POST">
             <input type="hidden" name="unique_school_id" value = {{insert_table.unique_school_id}}>
-            <input required type="submit" value="価格の予測診断を行う"></p>
+          <button required type="submit" class="btn">価格の予測診断を行う</button>
+<!--            <input required type="submit" value="価格の予測診断を行う">-->
         </form>
         <form action="/student_master_form" method="POST">
             <input type="hidden" name="school_name" value = {{insert_table.school_name}}>
-            <input required type="submit" value="生徒のモチベーション診断を行う"></p>
+          <button required type="submit" class="btn">生徒のモチベーション診断を行う</button>
+<!--            <input required type="submit" value="生徒のモチベーション診断を行う">-->
         </form>
-        <a href = "index"><h1>記入ページに戻る</h1></a>
-        <a href = "motivation_assessment_form"><h1>生徒のモチベーション診断を行う</h1></a>
-        <a href = "predict_price_form"><h1>価格の予測診断を行う</h1></a>
+        </div>
+      </secion>
+<!--        <a href = "index"><h1>記入ページに戻る</h1></a>-->
+<!--        <a href = "motivation_assessment_form"><h1>生徒のモチベーション診断を行う</h1></a>-->
+<!--        <a href = "predict_price_form"><h1>価格の予測診断を行う</h1></a>-->
         <footer>
             <small>(C)2021 Lec.Booster.</small>
         </footer>
     </body>
 </html>
+
+
