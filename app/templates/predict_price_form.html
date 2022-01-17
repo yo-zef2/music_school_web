@@ -2,18 +2,36 @@
 <html>
     <head>
         <title>教室の価格診断</title>
-        <link href="/static/css/style.css" rel="stylesheet">
+       <link href="/static/css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body>
+  
+    <body id=input-form>
         <header>
-            <div class = "logo"></div>
-            <img src="/static/images/lec_booster.png" alt="lec_booster">    
-            <p>{{unique_school_id}}</p>
+            <div class = "logo">
+            <img src="/static/images/lec_booster.png" alt="lec_booster"></div>   
+      <nav>
+        <ul class="grobal-nav">
+          <li>Portfolio</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>      
+        </nav>        
         </header>
-        <class></class>
-        <nav>
-            <h1>教室の価格診断</h1>
-        </nav>
+      
+         <!--wrap始まり-->
+    <div id="wrap">
+      <div class="content">
+        <h1>音楽教室の価格診断</h1>
+        <p>診断を行うにあたって、下記の情報をご記入ください</p>
+      </div>
+    </div>    
+    <!--wrap終わり-->     
+      
+  <!--formの記入-->
+    <secion>
+      <h1 class="icon">Input Price Predict Form</h1>
+      <div class="form">
         <form action="/addadd" method="POST">
             <input type="hidden" name="unique_school_id" value = {{unique_school_id}}>
             <p>▼指導歴(年)をご記入ください<br>
@@ -38,11 +56,17 @@
             <input required type="radio" name="t_contest" value=False>いいえ<br>
             <p>▼海外への留学経験はありますか<br>
             <input required type="radio" name="study_abroad" value=True>はい<br>
-            <input required type="radio" name="study_abroad" value=False>いいえ<br>                      
+            <input required type="radio" name="study_abroad" value=False>いいえ<br>
             <p>▼卒業大学をご記入ください<br>
-            <input required type="text" name="former_university" placeholder="(例)桐朋学園大学"><br>  
-            <input required type="submit" value="予測結果を見る"></p>
+            <input required type="text" name="former_university" placeholder="(例)桐朋学園大学"><br>
+            <button required type="submit" class="btn">提出する</button>
+<!--            <input required type="submit" value="予測結果を見る"></p>-->
         </form>
+        <div class="attention">
+         <p>* 全項目記入してください</p>
+        </div>
+      </div>
+      </secion>
         <footer>
             <small>(C)2021 Lec.Booster.</small>
         </footer>

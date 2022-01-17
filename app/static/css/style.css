@@ -319,3 +319,205 @@ footer small{
     color: #009cd3;
     cursor: pointer;
 }
+
+-----
+
+/*school-masterの見出しとHeaderの間の感覚*/
+
+#price-predict-input .content{
+    margin-top: 40px;
+}
+
+/*school-masterのcontetエリアのp要素*/
+
+#price-predict-input p {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+}
+
+
+#price-predict-input .content h1 {
+    font-size: 30px;
+    line-height: 1;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+    margin-bottom: 20px;
+}
+
+
+
+#price-predict-input .content p {
+    font-size: 16px;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+}
+
+#price-predict-input .content{
+  margin-top: 40px;
+}
+
+
+
+#price-predict-input .form{
+  background-color: darkgray;
+  font-family: 'Bitter', serif;
+  color: #ffffff;
+  padding:50px 50px;
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#price-predict-input .form dl dt{
+  font-size: 16px;
+  font-family: 'Bitter', serif;
+  width: 400px;
+  padding: 10px 0;
+  float: left;
+  clear: both;
+}
+
+#price-predict-input .form dl dd{
+  padding: 16px 0;
+}
+
+#price-predict-input .icon {
+  font-size: 35px;
+  font-family: 'Bitter', serif;
+  width: 960px;
+  margin: 0 auto;
+  
+}
+
+#price-predict-input .form button {
+    background-color: #009cd3;
+    color: #ffffff;
+    float: left;
+/*  　margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin: 10px 10px 10px 10px;*/
+    font-size: 15px;
+    font-family: 'Bitter', serif;
+    width: 250px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 3px solid #009cd3;
+  margin: 0 auto;
+}
+
+#price-predict-input .form button:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #009cd3;
+    cursor: pointer;
+}
+
+
+#price-predict-input .form .attention p{
+  font-size: 13px;
+}
+
+---------
+
+/*school-masterの見出しとHeaderの間の感覚*/
+
+#input-form .content{
+    margin-top: 40px;
+}
+
+/*school-masterのcontetエリアのp要素*/
+
+#input-form p {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+}
+
+
+#input-form .content h1 {
+    font-size: 30px;
+    line-height: 1;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+    margin-bottom: 20px;
+}
+
+
+
+#input-form .content p {
+    font-size: 16px;
+    color: #ffffff;
+    font-family: 'Bitter', serif;
+}
+
+#input-form .content{
+  margin-top: 40px;
+}
+
+
+
+#input-form .form{
+  background-color: darkgray;
+  font-family: 'Bitter', serif;
+  color: #ffffff;
+  padding:50px 50px;
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#pinput-form .form dl dt{
+  font-size: 16px;
+  font-family: 'Bitter', serif;
+  width: 400px;
+  padding: 10px 0;
+  float: left;
+  clear: both;
+}
+
+#input-form .form dl dd{
+  padding: 16px 0;
+}
+
+#input-form .icon {
+  font-size: 35px;
+  font-family: 'Bitter', serif;
+  width: 960px;
+  margin: 0 auto;
+  
+}
+
+#input-form .form button {
+    background-color: #009cd3;
+    color: #ffffff;
+    float: left;
+/*  　margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin: 10px 10px 10px 10px;*/
+    font-size: 15px;
+    font-family: 'Bitter', serif;
+    width: 250px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 3px solid #009cd3;
+  margin: 0 auto;
+}
+
+#input-form .form button:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #009cd3;
+    cursor: pointer;
+}
+
+
+#input-form .form .attention p{
+  font-size: 13px;
+}
