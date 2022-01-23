@@ -94,6 +94,22 @@ footer small{
     font-size: 12px;
 }
 
+/* フェードイン */
+
+.fade-in {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition: opacity 2s, transform 2s;
+}
+.fade-in.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+
+/* indexページ  */
 /*indexの見出し*/
 
 #index h1 {
@@ -103,7 +119,7 @@ footer small{
     font-family: 'Bitter', serif;
     margin-bottom: 20px;
 }
-
+ 
 
 
 /*indexの見出しとHeaderの間の間隔*/
@@ -113,12 +129,12 @@ footer small{
 }
 
 
-
 #index p {
     font-size: 20px;
     color: #ffffff;
     font-family: 'Bitter', serif;
-}
+  }
+
 
 
 
@@ -446,8 +462,6 @@ footer small{
     margin-bottom: 20px;
 }
 
-
-
 #input-form .content p {
     font-size: 16px;
     color: #ffffff;
@@ -457,7 +471,6 @@ footer small{
 #input-form .content{
   margin-top: 40px;
 }
-
 
 
 #input-form .form{

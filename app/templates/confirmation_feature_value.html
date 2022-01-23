@@ -2,17 +2,70 @@
 
 <html>
     <head>
-        <h1>価格に効いている変数たちはこちらです。</h1>
+        <title>価格の予測</title>
+        <link href="../static/css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">  
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/x.x.x/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script type="text/javascript" src="https://github.com/nagix/chartjs-plugin-colorschemes/releases/download/v0.2.0/chartjs-plugin-colorschemes.min.js"></script>
     </head>
-    <body>
+
+    <body id="confirmation">
         <header>
-            <p>{{features.t_childminder}}</p>
-        </header>
-        <a href = "index"><h1>記入ページに戻る</h1></a>
-        <a href = "motivation_assessment_form"><h1>生徒のモチベーション診断を行う</h1></a>
-        <a href = "predict_price_form"><h1>価格の予測診断を行う</h1></a>
+          <div class="logo">
+            <a href="index"><img src="../static/images/lec_booster.png" alt="lec_booster"></a>
+          </div>
+          <nav>
+        <ul class="grobal-nav">
+          <li>Portfolio</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      </header>
+
+    <!--wrap始まり-->
+    <div id="wrap">
+        <div class="content">
+            <p>診断結果をご確認ください。</p>
+        </div>
+        </div>
+      <section>
+        <div class="fade-in">
+            <h1 class="icon">See Price Forecast Result</h1>
+        </div>
+        <p class="feature-values">{{features.coaching_history}}</p>
+        <p class="feature-values">{{features.t_childminder}}</p>
+        <p class="feature-values">{{features.t_kindergarden_teacher}}</p>
+        <p class="feature-values">{{features.t_vocal_music}}</p>
+        <p class="feature-values">{{features.t_beginner}}</p>
+        <p class="feature-values">{{features.t_contest}}</p>
+        <p class="feature-values">{{features.former_university}}</p>
+        <p class="feature-values">{{features.composition}}</p>
+        <p class="feature-values">{{features.study_abroad}}</p>
+
+           <!-- coaching_history = features_by_id.coaching_history,
+             t_childminder = features_by_id.t_childminder,
+             t_kindergarden_teacher = features_by_id.t_kindergarden_teacher,
+             t_vocal_music = features_by_id.t_vocal_music,
+             t_beginner = features_by_id.t_beginner,
+             t_contest = features_by_id.t_contest,
+             former_university = features_by_id.former_university,
+             composition = features_by_id.composition,
+             study_abroad = features_by_id.study_abroad,) -->
+
+
+        <section>
+          <div class="form">
+        <canvas id="chart_cv"></canvas>
+      </div>
+        </section>
+
         <footer>
             <small>(C)2021 Lec.Booster.</small>
         </footer>
+        <script type="text/javascript" src="../static/javascript/my-script.js"></script>
+        <script src="https://unpkg.com/chartjs-plugin-colorschemes"></script>
     </body>
 </html>
