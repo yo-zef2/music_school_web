@@ -91,8 +91,10 @@ def post_price_predict():
 
     repository = FeatureValueRepository()
     repository.insert_data(features)
-
-    return render_template('confirmation_feature_value.html',features = features)
+    school_repository = SchoolRepository()
+    school_master = school_repository.find_by_id(features.unique_school_id)
+    print(school_master)
+    return render_template('confirmation_feature_value.html',features = features, school_master=school_master)
 
 # # FeatureValueのCRUD操作のテスト用
 

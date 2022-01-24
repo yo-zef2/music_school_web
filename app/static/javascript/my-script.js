@@ -35,10 +35,6 @@ function get_uni(former_university){
   const uni = former_university
   const re = uni.match(".{1,}大学")
   return re[0]}
-//   if (re[0] == "東京芸術大学")
-//   }
-//   return re[0]
-// }
 
 // 東京芸術大学か桐朋学園大学かの判別を行う
 
@@ -62,7 +58,6 @@ var t_contest = get_dummies(feature_values[5].textContent)
 var former_university = feature_values[6].textContent
 var composition = get_dummies(feature_values[7].textContent)
 var study_abroad = get_dummies(feature_values[8].textContent)
-
 former_university = identify_the_uni(former_university)
 
 var intercept = 59.24843864264586
@@ -77,20 +72,30 @@ var forecast_price = (intercept +
   composition*(4.651286)+
   study_abroad*(9.124657))
 
+// 現状の教室の価格を表示させる
+
+const current_price = document.getElementsByClassName("current-price")
+var school_name = current_price[0].textContent
+var price_minutes = current_price[1].textContent
+var price_month = current_price[2].textContent
+// var price_minutes = current_price[1].textContent
+// var price_month = current_price[2].textContent
+
+
 
 var ctx = document.getElementById("chart_cv");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
    //凡例のラベル
-    labels: ['XX教室'],
+    labels: [school_name],
     datasets: [
       {
-        label: '現状の価格', //データ項目のラベル
-        data: [100], //グラフのデータ
+        label: '現状の価格(分)', //データ項目のラベル
+        data: [price_minutes], //グラフのデータ
         backgroundColor: "rgba(200,112,126,0.5)"
       },{
-        label: '適正の価格', //データ項目のラベル
+        label: '適正の価格(分)', //データ項目のラベル
         data: [forecast_price], //グラフのデータ
         backgroundColor: "rgba(80,126,164,0.5)"
       }

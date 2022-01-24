@@ -25,6 +25,7 @@
       </nav>
       </header>
 
+
     <!--wrap始まり-->
     <div id="wrap">
         <div class="content">
@@ -35,15 +36,19 @@
         <div class="fade-in">
             <h1 class="icon">See Price Forecast Result</h1>
         </div>
-        <p class="feature-values">{{features.coaching_history}}</p>
-        <p class="feature-values">{{features.t_childminder}}</p>
-        <p class="feature-values">{{features.t_kindergarden_teacher}}</p>
-        <p class="feature-values">{{features.t_vocal_music}}</p>
-        <p class="feature-values">{{features.t_beginner}}</p>
-        <p class="feature-values">{{features.t_contest}}</p>
-        <p class="feature-values">{{features.former_university}}</p>
-        <p class="feature-values">{{features.composition}}</p>
-        <p class="feature-values">{{features.study_abroad}}</p>
+        <p hidden class="feature-values">{{features.coaching_history}}</p>
+        <p hidden class="feature-values">{{features.t_childminder}}</p>
+        <p hidden class="feature-values">{{features.t_kindergarden_teacher}}</p>
+        <p hidden class="feature-values">{{features.t_vocal_music}}</p>
+        <p hidden class="feature-values">{{features.t_beginner}}</p>
+        <p hidden class="feature-values">{{features.t_contest}}</p>
+        <p hidden class="feature-values">{{features.former_university}}</p>
+        <p hidden class="feature-values">{{features.composition}}</p>
+        <p hidden class="feature-values">{{features.study_abroad}}</p>
+        <p hidden class="current-price">{{school_master.school_name}}</p>
+        <p hidden class="current-price">{{school_master.price_minutes}}</p>
+        <p hidden class="current-price">{{school_master.price_month}}</p>
+
 
            <!-- coaching_history = features_by_id.coaching_history,
              t_childminder = features_by_id.t_childminder,
@@ -53,8 +58,7 @@
              t_contest = features_by_id.t_contest,
              former_university = features_by_id.former_university,
              composition = features_by_id.composition,
-             study_abroad = features_by_id.study_abroad,) -->
-
+             study_abroad = features_by_id.study_abroad,) -->      
 
         <section>
           <div class="form">
