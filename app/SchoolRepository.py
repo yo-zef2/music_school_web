@@ -29,6 +29,9 @@ class SchoolRepository:
         school_info_by_id = Database.session.query(
             SchoolMaster).filter(
                 SchoolMaster.unique_school_id == school_id).first()
+
+        print(school_info_by_id)
+
         school_info = dict(
             unique_school_id = school_info_by_id.unique_school_id,
             school_name = school_info_by_id.school_name,

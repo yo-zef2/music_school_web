@@ -9,6 +9,8 @@ from sqlalchemy.sql.expression import insert
 from sqlalchemy.sql.sqltypes import VARCHAR
 from sqlalchemy.types import Integer, String
 from sqlalchemy.orm import sessionmaker
+
+# from app.SchoolInfoJapanRepository import SchoolInfoWebRepository
 from .SchoolMaster import SchoolMaster
 from . import Database
 from .FeatureValue import FeatureValue
@@ -21,6 +23,8 @@ from .StudentRepository import StudentRepository
 from .QusetionSelfRepository import QuestionSelfRepository
 from .QuestionFactRepository import QuestionFactRepository
 from .FeatureValueRepository import FeatureValueRepository
+from .SchoolInfoJapan import SchoolInforJapan
+from .SchoolInfoJapanRepository import SchoolInfoJapanRepository
 
 app = Flask(__name__)
 
@@ -56,7 +60,12 @@ def post():
 # # SchoolMasterのCRUD操作のテスト用
 
 # repository = SchoolRepository()
-# repository.find_by_area("千代田区")
+# repository.find_by_id(386)
+
+# # SchoolInfoWebのCRUD操作のテスト用
+
+# repository = SchoolInfoJapanRepository()
+# repository.find_by_area("大阪府枚方市")
 
 # top.htmlを反映させるための関数
 @app.route('/top')
@@ -93,8 +102,15 @@ def post_price_predict():
     repository.insert_data(features)
     school_repository = SchoolRepository()
     school_master = school_repository.find_by_id(features.unique_school_id)
-    print(school_master)
-    return render_template('confirmation_feature_value.html',features = features, school_master=school_master)
+    repository = SchoolInfoJapanRepository()
+    market_info = repository.find_by_area(school_master["address"])
+    print(type(school_master))
+    print(type(market_info))
+    return render_template(
+        'confirmation_feature_value.html',
+        features = features,
+        school_master=school_master,
+        market_info = market_info)
 
 # # FeatureValueのCRUD操作のテスト用
 
